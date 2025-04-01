@@ -1,0 +1,201 @@
+/* Estilos Generales */
+body {
+    padding-top: 70px; /* Ajuste para el navbar fijo */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa; /* Fondo ligeramente gris */
+}
+
+/* Encabezado y Navegación */
+.navbar-brand img {
+    margin-right: 5px;
+}
+
+.navbar {
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Sección Inicio */
+#inicio h1 {
+    font-weight: 300 !important; /* Bootstrap fw-light */
+}
+
+/* Sección Categorías y Tarjetas de Productos */
+#categorias {
+    padding-bottom: 60px;
+}
+
+.card {
+    border: none; /* Bordes suaves */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Asegura que todas las tarjetas en una fila tengan la misma altura */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Evita que el contenido sobresalga en la animación */
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02); /* Efecto de elevación y ligero zoom */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.card-img-container {
+    height: 200px; /* Altura fija para el contenedor de la imagen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Asegura que la imagen no se desborde */
+    background-color: #ffffff; /* Fondo blanco por si la imagen es transparente */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-img-top {
+    max-height: 100%; /* La imagen ocupa máximo el alto del contenedor */
+    width: auto;     /* Mantiene la proporción */
+    max-width: 100%; /* Evita que la imagen sea más ancha que el contenedor */
+    object-fit: contain; /* Escala la imagen manteniendo la proporción, sin recortar */
+    padding: 15px; /* Espaciado interno para que la imagen no toque los bordes */
+}
+
+.card-body {
+    flex-grow: 1; /* Permite que el cuerpo de la tarjeta crezca para llenar el espacio */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empuja el botón hacia abajo */
+    padding: 1rem 1.2rem;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    /* Limitar texto a 2 líneas con puntos suspensivos */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 2.6em; /* Altura mínima para 2 líneas */
+}
+
+.card-text.price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #007bff; /* Azul Bootstrap */
+    margin-bottom: 1rem;
+}
+
+.btn-add-to-cart {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #0056b3; /* Azul más oscuro */
+    transform: scale(1.03);
+}
+
+/* Estilos del Carrito y Modales */
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+.cart-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.cart-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-right: 15px;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #eee;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-details h6 {
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.cart-item-details p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+.cart-item-actions button {
+    background: none;
+    border: none;
+    color: #dc3545; /* Rojo Bootstrap */
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 5px;
+}
+.cart-item-actions button:hover {
+    color: #a71d2a;
+}
+
+
+#cart-total {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Estilos del Formulario de Pago */
+#paymentModal .alert {
+    font-size: 0.9rem;
+}
+
+
+/* Responsividad Adicional */
+@media (max-width: 767.98px) {
+    body {
+        padding-top: 56px; /* Ajuste para navbar más pequeño en móviles */
+    }
+    .card-title {
+        font-size: 1rem;
+        min-height: 2.4em; /* Ajuste altura mínima para móvil */
+    }
+    .card-text.price {
+        font-size: 1.1rem;
+    }
+    .card-img-container {
+        height: 180px; /* Altura ligeramente menor en móviles */
+    }
+    #cartModal .modal-dialog {
+       margin: 0.5rem; /* Menos margen en móviles */
+    }
+    #cartModal .modal-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+     #cartModal .modal-footer > div {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+     #cartModal .modal-footer > div:last-child {
+         margin-bottom: 0;
+     }
+      #cartModal .modal-footer button {
+         width: 100%;
+     }
+}
+
+/* Spinner de carga */
+#product-list .spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
